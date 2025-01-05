@@ -51,10 +51,6 @@ func checkCubicRoots(a float64, b float64, c float64, d float64) bool {
 		return true
 	}
 
-	//
-	// find the minima/maxima by finding the roots of the derivative
-	//
-
 	// take the derivative
 	a2 := 3 * a
 	b2 := 2 * b

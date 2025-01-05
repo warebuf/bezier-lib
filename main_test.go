@@ -14,4 +14,7 @@ func Test1(t *testing.T) {
 	IntersectBezierLine([]float64{0, 0, 1, 3, 3, 1, 4, 4}, []float64{0, 2, 4, 2})     // horizontal line
 	IntersectBezierLine([]float64{0, 0, 3, 0, 0, 3, 3, 3}, []float64{1.5, 0, 1.5, 3}) // curve loops onto itself
 
+	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, 5})  // testing quadratic bezier (0 intersections)
+	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, -5}) // testing quadratic bezier (1 intersection)
+
 }
