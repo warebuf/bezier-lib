@@ -5,7 +5,6 @@ import "math"
 
 func main() {
 	fmt.Println("Hello, Go!")
-	IntersectBezierLine()
 }
 
 func IntersectBezierLine(bezier []float64, line []float64) bool {
@@ -25,6 +24,14 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 	b := A*(3*x2-6*x1+3*x0) + B*(3*y2-6*y1+3*y0)
 	c := A*(3*x1-3*x0) + B*(3*y1-3*y0)
 	d := A*x0 + B*y0 + C
+
+	// if a == 0, corner case, checkQuadraticRoots
+	if a == 0 {
+		if b == 0 {
+			return checkLinearRoots(c, d)
+		}
+		return checkQuadraticRoots(b, c, d)
+	}
 
 	// check if there are valid roots between [0, 1]
 	// for cubic equation: at^3 + bt^2 + ct + d = 0
@@ -80,5 +87,46 @@ func checkCubicRoots(a float64, b float64, c float64, d float64) bool {
 	}
 
 	fmt.Println("never crosses x-axis")
+	return false
+}
+
+// bt^2 + ct + d = 0
+func checkQuadraticRoots(b float64, c float64, d float64) bool {
+
+	t0 := d
+	t1 := b + c + d
+
+	if t0*t1 <= 0 {
+		fmt.Println("quadratic root crosses 0 between [0,1]")
+		return true
+	}
+
+	// take derivative to find turning point
+	b2 := 2 * b
+	c2 := c
+	tp_x := -c2 / b2
+	tp_y := b*tp_x*tp_x + c*tp_x + d
+
+	if (tp_x >= 0) && (tp_x <= 1) { // there is a turning point between 0 and 1, otherwise it for sure doesn't cross the x-axis
+		// if turning point is different polarity, return true, it crosses the root
+		if tp_y*t0 <= 0 {
+			fmt.Println("quadratic root check crosses 0")
+			return true
+		}
+	}
+	fmt.Println("quadratic root does not cross 0")
+	return false
+
+}
+
+func checkLinearRoots(c float64, d float64) bool {
+	t0 := d
+	t1 := c + d
+
+	if t0*t1 <= 0 {
+		fmt.Println("linear root check crosses 0")
+		return true
+	}
+	fmt.Println("linear root does not cross 0")
 	return false
 }
