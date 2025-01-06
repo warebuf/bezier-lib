@@ -3,10 +3,6 @@ package bezier
 import "fmt"
 import "math"
 
-func main() {
-	fmt.Println("Hello, Go!")
-}
-
 func IntersectBezierLine(bezier []float64, line []float64) bool {
 
 	// Compute line coefficients A, B, C
