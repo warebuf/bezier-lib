@@ -1,6 +1,8 @@
 package bezier
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test1(t *testing.T) {
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 3}, []float64{4, 0, 4, 4})     // never crosses
