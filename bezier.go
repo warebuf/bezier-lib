@@ -1,4 +1,4 @@
-package bezlib
+package bezier
 
 import "fmt"
 import "math"
