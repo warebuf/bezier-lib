@@ -5,6 +5,8 @@ import "math"
 
 func IntersectBezierLine(bezier []float64, line []float64) bool {
 
+	fmt.Println(bezier, line)
+
 	fmt.Println("abc1")
 
 	// Compute line coefficients A, B, C
