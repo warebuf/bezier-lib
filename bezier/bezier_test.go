@@ -5,6 +5,7 @@ import (
 )
 
 func Test1(t *testing.T) {
+
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 3}, []float64{4, 0, 4, 4})     // never crosses
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 3}, []float64{0, 0, 3, 3})     // 1 intersection
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 3, 4, 3}, []float64{0, 3, 4, 3})     // 2 intersections
@@ -18,5 +19,7 @@ func Test1(t *testing.T) {
 
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, 5})  // testing quadratic bezier (0 intersections)
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, -5}) // testing quadratic bezier (1 intersection)
+
+	IntersectBezierLine([]float64{314.4876, 372.7915, 326.8551, 362.1908, 331.2720, 332.155477, 351.5901, 351.5901}, []float64{0, 500, 180, 420}) // testing quadratic bezier (1 intersection)
 
 }

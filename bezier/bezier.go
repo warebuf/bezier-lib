@@ -67,7 +67,7 @@ func checkCubicRoots(a float64, b float64, c float64, d float64) bool {
 		tp0_y := a*tp0_x*tp0_x*tp0_x + b*tp0_x*tp0_x + c*tp0_x + d // find the y-value of the first root
 
 		if tp0_y*t0 <= 0 { // if the y-value is a different polarity, there is a root
-			fmt.Println("tp0 has different polarity", t0, tp0_y)
+			fmt.Println("tp0 has different polarity", t0, tp0_x, tp0_y)
 			return true
 		}
 	}
@@ -76,7 +76,7 @@ func checkCubicRoots(a float64, b float64, c float64, d float64) bool {
 		tp1_y := a*tp1_x*tp1_x*tp1_x + b*tp1_x*tp1_x + c*tp1_x + d // find the y-value of the second root
 
 		if tp1_y*t0 <= 0 { // if the y-value is a different polarity, there is a root
-			fmt.Println("tp1 has different polarity", t0, tp1_y)
+			fmt.Println("tp1 has different polarity", t0, tp0_x, tp1_y)
 			return true
 		}
 	}
