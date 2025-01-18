@@ -44,13 +44,11 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 		if t >= 0 && t <= 1 { // Root is within Bézier parameter range
 			XY := calcXY(bezier, t)
 			if onLineSegment(XY, line) {
-				fmt.Println("true")
 				return true // Intersection found
 			}
 		}
 	}
 
-	fmt.Println("false")
 	return false
 }
 
