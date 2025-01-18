@@ -13,10 +13,10 @@ func Test1(t *testing.T) {
 		t.Errorf("Expected 1")
 	}
 	if !IntersectBezierLine([]float64{0, 0, 1, 2, 2, 3, 4, 3}, []float64{0, 3, 4, 3}) {
-		t.Errorf("Expected 2")
+		t.Errorf("Expected 1")
 	}
-	if IntersectBezierLine([]float64{0, 0, 1, 3, 3, 1, 4, 4}, []float64{2, 2, 4, 2}) {
-		t.Errorf("Expected 0")
+	if !IntersectBezierLine([]float64{0, 0, 1, 3, 3, 1, 4, 4}, []float64{2, 2, 4, 2}) {
+		t.Errorf("Expected 1")
 	}
 	if !IntersectBezierLine([]float64{0, 0, 1, 1, 2, 2, 3, 3}, []float64{0, 0, 3, 3}) {
 		t.Errorf("Expected inf, lies on line")
