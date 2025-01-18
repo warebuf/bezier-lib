@@ -20,6 +20,8 @@ func Test1(t *testing.T) {
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, 5})  // testing quadratic bezier (0 intersections)
 	IntersectBezierLine([]float64{0, 0, 1, 2, 2, 2, 3, 0}, []float64{1, 6, 0, -5}) // testing quadratic bezier (1 intersection)
 
-	IntersectBezierLine([]float64{314.4876, 372.7915, 326.8551, 362.1908, 331.2720, 332.155477, 351.5901, 351.5901}, []float64{0, 500, 180, 420}) // testing quadratic bezier (1 intersection)
+	IntersectBezierLine([]float64{314.4876, 372.7915, 326.8551, 362.1908, 331.2720, 332.155477, 351.5901, 351.5901}, []float64{0, 500, 180, 420}) // 0 intersections
+	IntersectBezierLine([]float64{234.982, 176.6784, 211.1307, 166.0777, 203.180, 218.197, 231.448, 213.78}, []float64{0, 500, 90, 370})          // 0 intersections
+	IntersectBezierLine([]float64{234.982, 128.09, 234.98, 128.09, 234.98, 128.09, 234.98, 154.59}, []float64{0, 500, 128, 310})                  // testing quadratic bezier (1 intersection)
 
 }

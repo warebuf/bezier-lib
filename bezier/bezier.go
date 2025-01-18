@@ -5,14 +5,12 @@ import "math"
 
 func IntersectBezierLine(bezier []float64, line []float64) bool {
 
-	fmt.Println("?", bezier, line)
+	fmt.Println("v1", bezier, line)
 
 	// Compute line coefficients A, B, C
 	A := line[1] - line[3]                         // Y1-Y2
 	B := line[2] - line[0]                         // X2-X1
 	C := (line[3] * line[0]) - (line[2] * line[1]) // Y2*X1 - X2*Y1
-
-	fmt.Println("A:", A, "B:", B, "C:", C)
 
 	// Compute Bézier coefficients
 	x0, y0 := bezier[0], bezier[1]
@@ -24,8 +22,6 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 	b := A*(3*x2-6*x1+3*x0) + B*(3*y2-6*y1+3*y0)
 	c := A*(3*x1-3*x0) + B*(3*y1-3*y0)
 	d := C
-
-	fmt.Println("a,b,c,d", a, b, c, d)
 
 	// if a == 0, corner case, checkQuadraticRoots
 	if a == 0 {
