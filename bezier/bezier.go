@@ -1,11 +1,13 @@
 package bezier
 
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 func IntersectBezierLine(bezier []float64, line []float64) bool {
 
-	fmt.Println("v05", bezier, line)
+	fmt.Println("v06", bezier, line)
 
 	// Compute line coefficients A, B, C
 	A := line[1] - line[3]                         // Y1-Y2
@@ -25,7 +27,7 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 	c := A*(3*x1-3*x0) + B*(3*y1-3*y0)
 	d := C
 
-	fmt.Println("abcd", a, b, c, d)
+	//fmt.Println("abcd", a, b, c, d)
 
 	// if a == 0, corner case, checkQuadraticRoots
 	if a == 0 {
@@ -37,7 +39,7 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 
 	roots := cardano(a, b, c, d)
 
-	fmt.Println(roots)
+	//fmt.Println(roots)
 
 	// Check if any root is valid and lies within the line segment
 	for _, t := range roots {
@@ -68,7 +70,7 @@ func calcXY(bezier []float64, t float64) []float64 {
 
 	Y := Y1 + Y2 + Y3 + Y4
 
-	fmt.Println("X:", X, "Y:", Y)
+	//fmt.Println("X:", X, "Y:", Y)
 
 	return []float64{X, Y}
 }
@@ -130,7 +132,7 @@ func checkQuadraticRoots(b float64, c float64, d float64) bool {
 	t1 := b + c + d
 
 	if t0*t1 <= 0 {
-		fmt.Println("quadratic root crosses 0 between [0,1]")
+		//fmt.Println("quadratic root crosses 0 between [0,1]")
 		return true
 	}
 
@@ -143,11 +145,11 @@ func checkQuadraticRoots(b float64, c float64, d float64) bool {
 	if (tp_x >= 0) && (tp_x <= 1) { // there is a turning point between 0 and 1, otherwise it for sure doesn't cross the x-axis
 		// if turning point is different polarity, return true, it crosses the root
 		if tp_y*t0 <= 0 {
-			fmt.Println("quadratic root check crosses 0")
+			//fmt.Println("quadratic root check crosses 0")
 			return true
 		}
 	}
-	fmt.Println("quadratic root does not cross 0")
+	//fmt.Println("quadratic root does not cross 0")
 	return false
 
 }
@@ -157,10 +159,10 @@ func checkLinearRoots(c float64, d float64) bool {
 	t1 := c + d
 
 	if t0*t1 <= 0 {
-		fmt.Println("linear root check crosses 0")
+		//fmt.Println("linear root check crosses 0")
 		return true
 	}
-	fmt.Println("linear root does not cross 0")
+	//fmt.Println("linear root does not cross 0")
 	return false
 }
 
