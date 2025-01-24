@@ -37,7 +37,6 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 	}
 
 	roots := cardano(a, b, c, d)
-
 	//fmt.Println(roots)
 
 	// Check if any root is valid and lies within the line segment
