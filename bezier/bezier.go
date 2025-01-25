@@ -26,7 +26,7 @@ func IntersectBezierLine(bezier []float64, line []float64) bool {
 	a := A*(x3-3*x2+3*x1-x0) + B*(y3-3*y2+3*y1-y0)
 	b := A*(3*x2-6*x1+3*x0) + B*(3*y2-6*y1+3*y0)
 	c := A*(3*x1-3*x0) + B*(3*y1-3*y0)
-	d := C * (x0 + y0)
+	d := (A * x0) + (B * y0) + C
 
 	fmt.Println("abcd", a, b, c, d)
 
